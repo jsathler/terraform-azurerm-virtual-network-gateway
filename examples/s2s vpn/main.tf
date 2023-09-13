@@ -21,7 +21,7 @@ resource "azurerm_public_ip_prefix" "default" {
 }
 
 module "hub-vnet" {
-  source              = "../../../vnet"
+  source              = "jsathler/network/azurerm"
   name                = "example"
   location            = azurerm_resource_group.default.location
   resource_group_name = azurerm_resource_group.default.name

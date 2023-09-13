@@ -8,12 +8,12 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "default" {
-  name     = "vgw-sample-rg"
+  name     = "vgw-example-rg"
   location = local.location
 }
 
 resource "azurerm_public_ip_prefix" "default" {
-  name                = "sample"
+  name                = "example"
   location            = azurerm_resource_group.default.location
   resource_group_name = azurerm_resource_group.default.name
   prefix_length       = 31
@@ -21,8 +21,8 @@ resource "azurerm_public_ip_prefix" "default" {
 }
 
 module "hub-vnet" {
-  source              = "../../../vnet"
-  name                = "sample"
+  source              = "jsathler/network/azurerm"
+  name                = "example"
   location            = azurerm_resource_group.default.location
   resource_group_name = azurerm_resource_group.default.name
 
@@ -52,7 +52,7 @@ module "hub-vnet" {
 
 module "vgw-er" {
   source              = "../../"
-  name                = "er-sample"
+  name                = "er-example"
   location            = azurerm_resource_group.default.location
   resource_group_name = azurerm_resource_group.default.name
   type                = "ExpressRoute"
