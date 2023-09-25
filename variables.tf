@@ -149,14 +149,14 @@ variable "connections" {
 
     #If you need to customize the policy, you should provide all parameters
     ipsec_policy = optional(object({
-      dh_group         = string #DHGroup2
-      ike_encryption   = string #AES128
-      ike_integrity    = string #SHA256
-      ipsec_encryption = string #AES256
-      ipsec_integrity  = string #SHA1
-      pfs_group        = string #None
-      sa_datasize      = number #102400000
-      sa_lifetime      = number #27000
+      dh_group         = optional(string, null) #Azure default: DHGroup2
+      ike_encryption   = optional(string, null) #Azure default: AES128
+      ike_integrity    = optional(string, null) #Azure default: SHA256
+      ipsec_encryption = optional(string, null) #Azure default: AES256
+      ipsec_integrity  = optional(string, null) #Azure default: SHA1
+      pfs_group        = optional(string, null) #Azure default: None
+      sa_datasize      = optional(number, null) #Azure default: 102400000
+      sa_lifetime      = optional(number, null) #Azure default: 27000
     }), null)
 
     traffic_selector_policy = optional(list(
