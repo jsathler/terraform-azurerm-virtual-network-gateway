@@ -1,21 +1,3 @@
-# Azure Virtual Network Gateway Terraform module
-
-Terraform module which creates Azure Virtual Network Gateway resources on Azure.
-
-These types of resources are supported:
-
-* [Public IP](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses)
-* [Azure VPN Gateway](https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways)
-* [Site-to-site VPN](https://learn.microsoft.com/en-us/azure/vpn-gateway/design#s2smulti)
-* [ExpressRoute virtual network gateways](https://learn.microsoft.com/en-us/azure/expressroute/expressroute-about-virtual-network-gateways)
-
-## Terraform versions
-
-Terraform 1.5.6 and newer.
-
-## Usage
-
-```hcl
 module "vgw-vpn" {
   source              = "jsathler/virtual-network-gateway/azurerm"
   name                = "vpn-example"
@@ -54,6 +36,3 @@ module "vgw-vpn" {
     }
   }
 }
-```
-
-More samples in examples folder
